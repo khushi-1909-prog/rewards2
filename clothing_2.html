@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Better Buy • Clothing</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-E6w2p..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="styles.css" />
+   <style>
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: #ccc;
+    }
+    .divider-text {
+      padding: 0 10px;
+      color: green;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <button class="icon-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <h1 class="brand">Better Buy</h1>
+    <a href="#" class="icon-btn" aria-label="Cart"><i class="fas fa-bag-shopping"></i></a>
+   
+    
+  </header>
+<main class="container">
+  <!-- CENTERED TOP BUTTONS -->
+ 
+  
+    
+  <div class="btn-group top-center">
+    <button onclick="showSection('clothing')" class="btn small" id="btn-clothing">🛍 Clothing</button>
+    <a href="styling.html" class="btn-with-badge">
+    <button class="btn small">✨ Styling</button>
+    <span class="badge">NEW</span>
+    </a>
+
+    
+  </div>
+   <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-text">Free Shipping above orders ₹500</div>
+      <div class="divider-line"></div>
+    </div>
+  
+
+
+  
+    
+  <section class="grid">
+   
+      <!-- CARD 1 -->
+      <article class="card">
+        <img src="images/stripedshirt.jpg" alt="Striped Shirt">
+        <h3>Striped Shirt</h3>
+        <p class="price">₹ 799</p>
+        <a href="clothing_stripedshirt.html" class="btn">Description</a>
+      </article>
+      <!-- CARD 2 -->
+      <article class="card">
+        <img src="images/denimjacket.jpg" alt="Denim Jacket">
+        <h3>Denim Jacket</h3>
+        <p class="price">₹ 2,499</p>
+        <a href="clothing_denimjacket.html" class="btn">Description</a>
+      </article>
+      <!-- CARD 3 -->
+      <article class="card">
+        <img src="images/yellowdresses.jpg" alt="Yellow Dress">
+        <h3>Yellow Dress</h3>
+        <p class="price">₹ 1,199</p>
+        <a href="clothing_yellowdresses.html" class="btn">Description</a>
+      </article>
+      <!-- CARD 4 -->
+      <article class="card">
+        <img src="images/graypants.jpg" alt="Gray Pants">
+        <h3>Gray Pants</h3>
+        <p class="price">₹ 1,699</p>
+        <a href="clothing_graypants.html" class="btn">Description</a>
+      </article>
+      <article class="card">
+        <img src="images/matcha.jpg" alt="Gray Pants">
+        <h3>Green T‑Shirt</h3>
+        <p class="price">₹ 599</p>
+        <a href="clothing_matcha.html" class="btn">Description</a>
+      </article>
+       <article class="card">
+        <img src="images/linenResortShirt.jpg" alt="linenResortShirt">
+        <h3>Linen Resort Shirt</h3>
+        <p class="price">₹ 999</p>
+        <a href="clothing_linen.html" class="btn">Description</a>
+      </article>
+        <article class="card">
+        <img src="images/hoodie.jpg" alt="hoodie">
+        <h3>Drawstring Embroidered Hoodie</h3>
+        <p class="price">₹ 1,499</p>
+        <a href="clothing_hoodie.html" class="btn">Description</a>
+      </article>
+       <article class="card">
+        <img src="images/casualsportsPants.jpg" alt="casualsportsPants">
+        <h3>Casual Sports Pants</h3>
+        <p class="price">₹ 999</p>
+        <a href="clothing_sportsPants.html" class="btn">Description</a>
+      </article>
+    </section>
+</main>
+ 
+
+    
+    
+    
+    
+    
+    <script>
+  function showSection(type) {
+    const clothing = document.getElementById("clothing");
+    if (type === "clothing") {
+      clothing.style.display = "block";
+    }
+  }
+
+  // Optionally hide clothing section initially
+  window.onload = function () {
+    document.getElementById("clothing").style.display = "none";
+  };
+</script>
+
+
+
+<footer class="footer">© 2025 Better Buy · All rights reserved</footer>
+</body>
+</html>
