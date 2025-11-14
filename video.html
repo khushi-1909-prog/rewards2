@@ -91,8 +91,8 @@
 <header>🎥 Product Videos</header>
 
 <section class="video-section">
-  <!-- FIXED — autoplay requirements added -->
-  <video class="auto-video" muted playsinline preload="none">
+  <!-- UPDATED — removed muted, added controls -->
+  <video class="auto-video" controls playsinline preload="none">
     <source src="v/VID_20251101010158.mp4" type="video/mp4">
   </video>
 
@@ -104,14 +104,14 @@
 </section>
 
 <script>
-  // AUTO PLAY VIDEO WHEN SCROLLING
+  // AUTO PLAY VIDEO WHEN SCROLLING (won't autoplay sound, but keeps pause/play behavior)
   document.addEventListener("DOMContentLoaded", function () {
     const videos = document.querySelectorAll(".auto-video");
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.play();
+          // entry.target.play();  // Autoplay with sound is blocked, so we skip
         } else {
           entry.target.pause();
         }
