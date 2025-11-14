@@ -13,6 +13,7 @@
       color: white;
       font-family: Arial, sans-serif;
       overflow-x: hidden;
+      text-align: center;
     }
 
     header {
@@ -27,44 +28,37 @@
       z-index: 10;
     }
 
-    /* FIXED — horizontal view */
     .video-section {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+      flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 20px;
+      padding: 20px 0;
       gap: 20px;
     }
 
-    /* FIXED — smaller video */
-    .video-section video {
-      width: 45vw;
-      height: 55vh;
-      object-fit: cover;
-      border-radius: 12px;
+    /* Center Video */
+    video {
+      width: 70vw;
+      height: auto;
+      max-height: 70vh;
+      border-radius: 14px;
       background: black;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
     }
 
-    /* RIGHT SIDE — product box */
-    .product-info {
-      width: 35%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
+    /* Product below video */
     .product-info img {
-      width: 180px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+      width: 170px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 3px 12px rgba(255, 255, 255, 0.3);
     }
 
     .product-info h3 {
-      margin: 0;
+      margin-bottom: 8px;
       font-size: 20px;
       font-weight: bold;
     }
@@ -72,54 +66,54 @@
     .shop-btn {
       display: inline-block;
       text-decoration: none;
-      color: white;
       background: royalblue;
-      padding: 8px 14px;
+      color: white;
+      padding: 10px 16px;
       border-radius: 6px;
-      font-size: 14px;
+      margin-top: 10px;
+      font-size: 15px;
       transition: 0.3s;
     }
 
     .shop-btn:hover {
-      background: #0056d6;
+      background: #003fba;
     }
   </style>
-</head>
 
+</head>
 <body>
 
 <header>🎥 Product Videos</header>
 
 <section class="video-section">
-  <!-- FIXED — autoplay requirements added -->
-  <video class="auto-video" muted playsinline preload="none">
+
+  <!-- SOUND ENABLED (muted removed) -->
+  <video id="mainVideo" preload="auto" controls playsinline>
     <source src="v/VID_20251101010158.mp4" type="video/mp4">
   </video>
 
   <div class="product-info">
     <h3>Red & White Chunky Sneakers</h3>
-    <img src="images/new1.jpg" alt="Red & White Sneakers">
+    <img src="images/new1.jpg" alt="Sneakers">
     <a href="striped-shirt.html" class="shop-btn">🛍 Shop Now</a>
   </div>
+
 </section>
 
 <script>
-  // AUTO PLAY VIDEO WHEN SCROLLING
-  document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll(".auto-video");
+  // AUTO PLAY WHEN SCROLLED INTO VIEW (USER MUST CLICK ONCE FOR SOUND)
+  const video = document.getElementById("mainVideo");
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.play();
-        } else {
-          entry.target.pause();
-        }
-      });
-    }, { threshold: 0.3 });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Only autoplay AFTER user clicks once
+        if (!video.paused) return;
+      }
+    });
+  }, { threshold: 0.5 });
 
-    videos.forEach(video => observer.observe(video));
-  });
+  observer.observe(video);
 </script>
 
 </body>
