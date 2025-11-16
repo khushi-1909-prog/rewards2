@@ -1,126 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Better Buy • Videos</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Myntra Style Video Page</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+  }
 
-    header {
-      text-align: center;
-      background: royalblue;
-      color: white;
-      padding: 15px;
-      font-size: 22px;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  /* VIDEO CONTAINER */
+  .video-box {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    background: #000;
+  }
 
-    /* FIXED — horizontal view */
-    .video-section {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-      padding: 20px;
-      gap: 20px;
-    }
+  .video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps vertical video like Myntra */
+  }
 
-    /* FIXED — smaller video */
-    .video-section video {
-      width: 45vw;
-      height: 55vh;
-      object-fit: cover;
-      border-radius: 12px;
-      background: black;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+  /* Play Button Overlay */
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 65px;
+    color: white;
+    opacity: 0.85;
+    cursor: pointer;
+  }
 
-    /* RIGHT SIDE — product box */
-    .product-info {
-      width: 35%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
+  /* Product Cards Section */
+  .product-strip {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 15px;
+    white-space: nowrap;
+  }
 
-    .product-info img {
-      width: 180px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-    }
+  .product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    min-width: 150px;
+    background: #fff;
+    padding-bottom: 10px;
+  }
 
-    .product-info h3 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: bold;
-    }
+  .product-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
 
-    .shop-btn {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      background: royalblue;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+  .product-card h4 {
+    margin: 6px;
+    font-size: 15px;
+    font-weight: bold;
+  }
 
-    .shop-btn:hover {
-      background: #0056d6;
-    }
-  </style>
+  .product-card p {
+    margin: 6px;
+    font-size: 14px;
+  }
+</style>
+
 </head>
-
 <body>
 
-<header>🎥 Product Videos</header>
-
-<section class="video-section">
-  <!-- UPDATED — removed muted, added controls -->
-  <video class="auto-video" controls playsinline preload="none">
+<!-- VIDEO SECTION -->
+<div class="video-box">
+  <video id="mainVideo" playsinline preload="none">
     <source src="v/VID_20251101010158.mp4" type="video/mp4">
   </video>
 
-  <div class="product-info">
-    <h3>Red & White Chunky Sneakers</h3>
-    <img src="images/new1.jpg" alt="Red & White Sneakers">
-    <a href="striped-shirt.html" class="shop-btn">🛍 Shop Now</a>
+  <!-- Play Button -->
+  <div class="play-btn" id="playBtn">▶</div>
+</div>
+
+<!-- PRODUCT STRIP LIKE MYNTRA -->
+<div class="product-strip">
+  <div class="product-card">
+    <img src="images/new1.jpg" alt="">
+    <h4>Red & White Sneakers</h4>
+    <p>₹719<del>₹799</del> <span style="color:red;">10% OFF</span></p>
   </div>
-</section>
+
+
 
 <script>
-  // AUTO PLAY VIDEO WHEN SCROLLING (won't autoplay sound, but keeps pause/play behavior)
-  document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll(".auto-video");
+  const video = document.getElementById("mainVideo");
+  const btn = document.getElementById("playBtn");
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // entry.target.play();  // Autoplay with sound is blocked, so we skip
-        } else {
-          entry.target.pause();
-        }
-      });
-    }, { threshold: 0.3 });
+  btn.addEventListener("click", () => {
+    video.play();
+    btn.style.display = "none"; // hide play button after playing
+  });
 
-    videos.forEach(video => observer.observe(video));
+  video.addEventListener("pause", () => {
+    btn.style.display = "block"; // show button again when paused
   });
 </script>
 
 </body>
 </html>
+
+
