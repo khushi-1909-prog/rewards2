@@ -1,119 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Better Buy • Vertical Video</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product + Video</title>
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: #fff;
-    font-family: Arial, sans-serif;
-  }
+    body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+    }
 
-  /* VIDEO WRAPPER (same size as the Saree screenshot) */
-  .video-box {
-    width: 100%;
-    max-width: 450px;       /* keeps proportions similar */
-    height: 70vh;           /* very close to your screenshot */
-    margin: 0 auto;
-    overflow: hidden;
-    background: black;
-    border-radius: 10px;
-    position: relative;
-  }
+    .wrapper {
+        width: 100%;
+        max-width: 450px;
+        background: #000;
+        padding: 20px;
+        box-sizing: border-box;
+    }
 
-  .video-box video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;   /* keeps video TALL and VERTICAL */
-    background: #000;
-  }
+    .video-box {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
 
-  /* PLAY BUTTON CENTERED */
-  .play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: white;
-    opacity: 0.8;
-    cursor: pointer;
-  }
+    video {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #000;
+    }
 
-  /* PRODUCT CONTAINER */
-  .product-container {
-    margin: 20px auto;
-    max-width: 450px;
-    padding: 10px;
-  }
+    .product-box {
+        width: 100%;
+        background: #111;
+        padding: 15px;
+        border-radius: 12px;
+        color: #fff;
+        text-align: center;
+    }
 
-  /* SMALL PRODUCT CARD LIKE YOUR SCREENSHOT */
-  .product-card {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
+    .product-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
 
-  .product-card img {
-    width: 140px;
-    height: auto;
-    border-radius: 8px;
-  }
+    .product-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 
-  .product-text h4 {
-    margin: 0;
-    font-size: 18px;
-  }
+    .price {
+        font-size: 16px;
+        margin: 5px 0;
+    }
 
-  .product-text p {
-    margin: 4px 0;
-    font-size: 15px;
-  }
+    .old-price {
+        text-decoration: line-through;
+        color: #bbb;
+        margin-left: 5px;
+    }
 
+    .discount {
+        color: #4cd964;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+    .shop-btn {
+        margin-top: 12px;
+        padding: 10px 18px;
+        background: #ff0055;
+        border: none;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
 </style>
 
 </head>
 <body>
 
-<!-- VERTICAL VIDEO -->
-<div class="video-box">
-  <video id="mainVideo" playsinline preload="none">
-    <source src="v/yourvideo.mp4" type="video/mp4">
-  </video>
+<div class="wrapper">
 
-  <!-- Play Button -->
-  <div id="playBtn" class="play-btn">▶</div>
-</div>
-
-<!-- PRODUCT DETAILS (correct small size) -->
-<div class="product-container">
-  <div class="product-card">
-    <img src="images/new1.jpg" alt="Sneakers">
-
-    <div class="product-text">
-      <h4>Red & White Sneakers</h4>
-      <p>₹719 <del>₹799</del> <span style="color:red;">10% OFF</span></p>
+    <!-- VIDEO -->
+    <div class="video-box">
+        <video controls autoplay muted playsinline>
+            <source src="v/VID_20251101010158.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-  </div>
+
+    <!-- PRODUCT BOX -->
+    <div class="product-box">
+        <img src="shoe.jpg" class="product-img">
+
+        <div class="product-title">Red & White Sneakers</div>
+
+        <div class="price">
+            ₹719 
+            <span class="old-price">₹799</span> 
+            <span class="discount">10% OFF</span>
+        </div>
+
+        <button class="shop-btn">Shop Now</button>
+    </div>
+
 </div>
-
-<script>
-  const video = document.getElementById("mainVideo");
-  const btn = document.getElementById("playBtn");
-
-  btn.addEventListener("click", () => {
-    video.play();
-    btn.style.display = "none";
-  });
-
-  video.addEventListener("pause", () => {
-    btn.style.display = "block";
-  });
-</script>
 
 </body>
 </html>
