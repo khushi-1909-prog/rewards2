@@ -3,99 +3,103 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Myntra Style Video Page</title>
+<title>Better Buy • Vertical Video</title>
 
 <style>
   body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     background: #fff;
+    font-family: Arial, sans-serif;
   }
 
-  /* VIDEO CONTAINER */
+  /* VIDEO WRAPPER (same size as the Saree screenshot) */
   .video-box {
-    position: relative;
     width: 100%;
-    height: 90vh;
+    max-width: 450px;       /* keeps proportions similar */
+    height: 70vh;           /* very close to your screenshot */
+    margin: 0 auto;
     overflow: hidden;
-    background: #000;
+    background: black;
+    border-radius: 10px;
+    position: relative;
   }
 
   .video-box video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keeps vertical video like Myntra */
+    object-fit: contain;   /* keeps video TALL and VERTICAL */
+    background: #000;
   }
 
-  /* Play Button Overlay */
+  /* PLAY BUTTON CENTERED */
   .play-btn {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 65px;
+    font-size: 60px;
     color: white;
-    opacity: 0.85;
+    opacity: 0.8;
     cursor: pointer;
   }
 
-  /* Product Cards Section */
-  .product-strip {
-    display: flex;
-    overflow-x: auto;
-    gap: 12px;
-    padding: 15px;
-    white-space: nowrap;
+  /* PRODUCT CONTAINER */
+  .product-container {
+    margin: 20px auto;
+    max-width: 450px;
+    padding: 10px;
   }
 
+  /* SMALL PRODUCT CARD LIKE YOUR SCREENSHOT */
   .product-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    min-width: 150px;
-    background: #fff;
-    padding-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
   }
 
   .product-card img {
-    width: 100%;
-    border-radius: 10px 10px 0 0;
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
   }
 
-  .product-card h4 {
-    margin: 6px;
+  .product-text h4 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .product-text p {
+    margin: 4px 0;
     font-size: 15px;
-    font-weight: bold;
   }
 
-  .product-card p {
-    margin: 6px;
-    font-size: 14px;
-  }
 </style>
 
 </head>
 <body>
 
-<!-- VIDEO SECTION -->
+<!-- VERTICAL VIDEO -->
 <div class="video-box">
   <video id="mainVideo" playsinline preload="none">
-    <source src="v/VID_20251101010158.mp4" type="video/mp4">
+    <source src="v/yourvideo.mp4" type="video/mp4">
   </video>
 
   <!-- Play Button -->
-  <div class="play-btn" id="playBtn">▶</div>
+  <div id="playBtn" class="play-btn">▶</div>
 </div>
 
-<!-- PRODUCT STRIP LIKE MYNTRA -->
-<div class="product-strip">
+<!-- PRODUCT DETAILS (correct small size) -->
+<div class="product-container">
   <div class="product-card">
-    <img src="images/new1.jpg" alt="">
-    <h4>Red & White Sneakers</h4>
-    <p>₹719<del>₹799</del> <span style="color:red;">10% OFF</span></p>
+    <img src="images/new1.jpg" alt="Sneakers">
+
+    <div class="product-text">
+      <h4>Red & White Sneakers</h4>
+      <p>₹719 <del>₹799</del> <span style="color:red;">10% OFF</span></p>
+    </div>
   </div>
-
-
+</div>
 
 <script>
   const video = document.getElementById("mainVideo");
@@ -103,15 +107,13 @@
 
   btn.addEventListener("click", () => {
     video.play();
-    btn.style.display = "none"; // hide play button after playing
+    btn.style.display = "none";
   });
 
   video.addEventListener("pause", () => {
-    btn.style.display = "block"; // show button again when paused
+    btn.style.display = "block";
   });
 </script>
 
 </body>
 </html>
-
-
