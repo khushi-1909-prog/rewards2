@@ -3,191 +3,151 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Product + Video — Single Card</title>
+<title>Product + Video — Stacked Cards</title>
+
 <style>
   :root {
     --card-w:420px;
     --bg:#000;
-    --panel:#0b0b0b; /* unified panel color */
+    --panel:#0b0b0b;
     --muted:#9aa4b2;
     --accent:#ff0055;
   }
 
-  html,body{
-    height:100%;
+  body {
     margin:0;
     background:var(--bg);
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-font-smoothing:antialiased;
-    color:#fff;
-  }
-
-  /* center page */
-  .page {
-    min-height:100vh;
+    font-family:Arial, sans-serif;
+    color:white;
     display:flex;
+    flex-direction:column;
     align-items:center;
-    justify-content:center;
     padding:20px;
-    box-sizing:border-box;
   }
 
-  /* THE SINGLE CARD: holds video + product inside one block */
   .card {
     width:100%;
     max-width:var(--card-w);
     background:var(--panel);
     border-radius:12px;
-    overflow:hidden;           /* ensures the video & product sit as one */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.04);
+    overflow:hidden;
+    margin-bottom:30px;   /* ensures videos do NOT mix */
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
   }
 
-  /* video area — no extra margin, fits the top of the card */
   .video-wrap {
     width:100%;
-    aspect-ratio:9/16;      /* portrait-leaning box */
-    background:#000;
-    position:relative;
-  }
-
-  .video-wrap video{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;       /* fills the card area (may crop) */
+    aspect-ratio:9/16;
     background:#000;
   }
 
-  /* product area sits flush under the video (single card) */
-  .product {
-    display:flex;
-    gap:12px;
-    align-items:center;
-    padding:12px 14px;
-    background:transparent; /* same as card so it looks unified */
-  }
-
-  .product-thumb{
-    width:120px;
-    height:90px;
-    border-radius:8px;
-    overflow:hidden;
-    flex:0 0 120px;
-    background:#111;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .product-thumb img{
+  video {
     width:100%;
     height:100%;
     object-fit:cover;
     display:block;
   }
 
-  .meta {
-    flex:1;
-    min-width:0;
+  .product {
+    display:flex;
+    gap:12px;
+    padding:14px;
+  }
+
+  .product-thumb {
+    width:120px;
+    height:90px;
+    overflow:hidden;
+    border-radius:8px;
+    background:#111;
+  }
+
+  .product-thumb img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
 
   .meta h3 {
     margin:0 0 6px 0;
     font-size:16px;
-    color:#fff;
   }
 
-  .price-row { display:flex; gap:8px; align-items:center; font-size:14px; color:var(--muted); }
-  .price-row .old { text-decoration:line-through; color:#8b95a3; }
-  .price-row .discount { color:#4cd964; font-weight:600; }
+  .price-row {
+    font-size:14px;
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  .old { text-decoration:line-through; color:#888; }
+  .discount { color:#4cd964; font-weight:bold; }
 
   .shop-btn {
     background:var(--accent);
-    color:white;
-    border:0;
     padding:8px 12px;
+    border:0;
     border-radius:8px;
-    cursor:pointer;
-    font-weight:700;
+    color:white;
+    font-weight:bold;
     margin-left:auto;
-  }
-
-  /* responsive */
-  @media (max-width:420px){
-    :root{ --card-w:360px; }
-    .product-thumb{ width:96px; height:72px; flex:0 0 96px; }
+    cursor:pointer;
   }
 </style>
 </head>
 <body>
-  <div class="page">
-    <div class="card" role="region" aria-label="Video with product">
 
-      <!-- VIDEO (inside same card) -->
-      <div class="video-wrap">
-        <!-- Replace source with your video file path -->
-        <video id="mainVideo" playsinline controls preload="metadata">
-          <source src="v/VID_20251101010158.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <!-- PRODUCT (directly under video — same card) -->
-      <div class="product">
-        <div class="product-thumb">
-          <!-- Replace image path; if it doesn't load, console will show 404 -->
-          <img id="prodImg" src="images/new1.jpg" alt="Red & White Sneakers">
-        </div>
-
-        <div class="meta">
-          <h3>Red & White Sneakers</h3>
-          <div class="price-row">
-            <div class="now">₹719</div>
-            <div class="old">₹799</div>
-            <div class="discount">10% OFF</div>
-          </div>
-            <div class="video-wrap">
-        <!-- Replace source with your video file path -->
-        <video id="mainVideo" playsinline controls preload="metadata">
-          <source src="v/WhatsApp Video 2025-11-23 at 00.54.10.mp4.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <!-- PRODUCT (directly under video — same card) -->
-     
-        <div class="product-thumb">
-          <!-- Replace image path; if it doesn't load, console will show 404 -->
-          <img id="prodImg" src="images/new20.jpeg" alt="beach mates">
-        </div>
-
-        <div class="meta">
-          <h3>Beach Mates</h3>
-          <div class="price-row">
-            <div class="now">₹720</div>
-            <div class="old">₹800</div>
-            <div class="discount">10% OFF</div>
-          </div>
-        </div>
-
-        <button class="shop-btn" onclick="location.href='clothing_beach.html'">🛍 Shop Now</button>
-      </div>
-
-   
+<!-- CARD 1 -->
+<div class="card">
+  <div class="video-wrap">
+    <video playsinline controls preload="metadata">
+      <source src="v/VID_20251101010158.mp4" type="video/mp4">
+    </video>
   </div>
 
-<script>
-  // Image error handler — shows console hint and replaces with a tiny transparent GIF
-  const img = document.getElementById('prodImg');
-  img.addEventListener('error', () => {
-    console.warn('Product image failed to load. Check file path and filename (case-sensitive).');
-    img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACw='; // 1px gif fallback
-  });
-</script>
+  <div class="product">
+    <div class="product-thumb">
+      <img src="images/new1.jpg" alt="Red & White Sneakers">
+    </div>
+
+    <div class="meta">
+      <h3>Red & White Sneakers</h3>
+      <div class="price-row">
+        <div>₹719</div>
+        <div class="old">₹799</div>
+        <div class="discount">10% OFF</div>
+      </div>
+    </div>
+
+    <button class="shop-btn">Shop Now</button>
+  </div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card">
+  <div class="video-wrap">
+    <video playsinline controls preload="metadata">
+      <source src="v/WhatsApp Video 2025-11-23 at 00.54.10.mp4.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="product">
+    <div class="product-thumb">
+      <img src="images/new20.jpeg" alt="Beach Mates">
+    </div>
+
+    <div class="meta">
+      <h3>Beach Mates</h3>
+      <div class="price-row">
+        <div>₹720</div>
+        <div class="old">₹800</div>
+        <div class="discount">10% OFF</div>
+      </div>
+    </div>
+
+    <button class="shop-btn" onclick="location.href='clothing_beach.html'">Shop Now</button>
+  </div>
+</div>
+
 </body>
 </html>
-
-
-
-
