@@ -85,16 +85,18 @@
 
 .shop-btn {
   background: var(--accent);
-  padding: 4px 10px;        /* 🔽 smaller height & width */
+  padding: 2px 8px;        /* 🔥 minimum height */
   border: none;
-  border-radius: 6px;       /* soft rectangle (NOT circle) */
+  border-radius: 5px;      /* small rectangular corners */
   color: #fff;
-  font-size: 12px;          /* smaller text */
+  font-size: 11px;         /* very compact text */
   font-weight: 600;
   cursor: pointer;
   margin-left: auto;
-  white-space: nowrap;      /* keeps text in one line */
+  line-height: 1;          /* 🔑 removes extra height */
+  white-space: nowrap;
 }
+
 .shop-btn:hover {
   opacity: 0.9;
 }
@@ -219,6 +221,7 @@
 </body>
 
 </html>
+
 
 
 
