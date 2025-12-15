@@ -84,16 +84,21 @@
   .discount { color:#4cd964; font-weight:bold; }
 
 .shop-btn {
-    background: var(--accent);
-    padding: 6px 14px;       /* small rectangular size */
-    border: none;
-    border-radius: 8px;      /* soft rectangular corners */
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-left: auto;
+  background: var(--accent);
+  padding: 4px 10px;        /* 🔽 smaller height & width */
+  border: none;
+  border-radius: 6px;       /* soft rectangle (NOT circle) */
+  color: #fff;
+  font-size: 12px;          /* smaller text */
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: auto;
+  white-space: nowrap;      /* keeps text in one line */
 }
+.shop-btn:hover {
+  opacity: 0.9;
+}
+
 
 </style>
 </head>
@@ -214,6 +219,7 @@
 </body>
 
 </html>
+
 
 
 
