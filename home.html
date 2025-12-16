@@ -30,6 +30,69 @@
       font-weight: bold;
       white-space: nowrap;
     }
+    /* POPUP STYLES */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 22px;
+  width: 90%;
+  max-width: 360px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popupFade 0.3s ease;
+}
+
+.popup-box h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.popup-box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.popup-box button {
+  margin-top: 15px;
+  background: royalblue;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup-box button:hover {
+  opacity: 0.9;
+}
+
+@keyframes popupFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
   </style>
 </head>
 
@@ -127,12 +190,39 @@
   window.onload = function () {
     document.getElementById("clothing").style.display = "none";
   };
+
+  window.onload = function () {
+    const popup = document.getElementById("order-popup");
+    const closeBtn = document.getElementById("close-popup");
+
+    // Show popup on page load
+    popup.style.display = "flex";
+
+    // Close popup
+    closeBtn.onclick = function () {
+      popup.style.display = "none";
+    };
+  };
+
+
 </script>
 
 
+<!-- POPUP -->
+<div id="order-popup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>🛍️ How to Order</h2>
+    <p>
+      Click on the <strong>Description</strong> button of any product  
+      to view details and place your order.
+    </p>
+    <button id="close-popup">Got it</button>
+  </div>
+</div>
 
 <footer class="footer">© 2025 Better Buy · All rights reserved</footer>
 </body>
 </html>
+
 
 
