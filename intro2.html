@@ -4,66 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome • Better Buy</title>
-  <link rel="stylesheet" href="styles.css" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #fdd9b5;              /* ✅ SAME background */
       margin: 0;
-      padding: 2rem;
-      background-color: #f9f9f9;
-      text-align: center;
+      padding: 0;
+      display: flex;                    /* ✅ center content */
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+
     .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      background: #fff0e0;              /* ✅ SAME card color */
+      padding: 20px;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 24px;
-      color: #333;
-    }
-    p {
+      box-sizing: border-box;
       text-align: left;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
       margin-bottom: 1rem;
       color: #444;
-      line-height: 1.6;
     }
+
     .start-btn {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 10px 20px;
       background-color: #007bff;
       color: white;
       text-decoration: none;
       border-radius: 25px;
       font-weight: bold;
       transition: background 0.3s;
+      text-align: center;
     }
+
     .start-btn:hover {
       background-color: #0056b3;
     }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
 
-
-
-    <!-- UPDATED CONTENT STARTS -->
     <p>
-      <strong>Better Buy</strong> Better Buy now wants to expand its offerings by introducing two new services on alongside its existing shopping features. The platform now offers a rewards program section along with a video shopping service. Through the rewards program, consumers will be able to earn reward points after every successful purchase and redeem these points for cash discounts or to purchase new products. Alongside this, the video shopping service allows consumers to watch short product videos that demonstrate product features, usage, and available options, helping them better understand products before making a purchase and order directly through video.
+      <strong>Better Buy</strong> now wants to expand its offerings by introducing two new services alongside its existing shopping features. The platform now offers a rewards program section along with a video shopping service.
     </p>
+
+    <p>
+      Through the rewards program, consumers earn points after every successful purchase and redeem them for discounts or products. The video shopping service allows customers to watch short product videos and place orders directly through them.
+    </p>
+
     <p>
       <strong>After reading the information above, you are required to browse the Better Buy platform and select any product and place the order.</strong>
-     
     </p>
-    <!-- UPDATED CONTENT ENDS -->
 
-    <a href="clothing_2.html" class="start-btn">Continue</a>
+    <div class="button-container">
+      <a href="clothing_2.html" class="start-btn">Continue</a>
+    </div>
+
   </div>
 </body>
 </html>
-
-
