@@ -100,6 +100,39 @@
 .shop-btn:hover {
   opacity: 0.9;
 }
+.end-actions {
+  width: 100%;
+  max-width: var(--card-w);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.end-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: #333;
+  color: #fff;
+}
+
+.continue-btn {
+  background: var(--accent);
+  color: #fff;
+}
+
+.end-btn:hover {
+  opacity: 0.9;
+}
+
 
 
 </style>
@@ -218,9 +251,47 @@
   </div>
 </div>
 
+<!-- END BUTTONS -->
+<div class="end-actions" id="endSection">
+  <button class="end-btn back-btn" onclick="location.href='success2.html'">
+    ⬅ Back
+  </button>
+
+  <button class="end-btn continue-btn" onclick="location.href='https://forms.gle/YOUR_GOOGLE_FORM_LINK'">
+    Continue ➡
+  </button>
+</div>
+<script>
+  let scrollTimeout;
+  let reachedEnd = false;
+
+  window.addEventListener("scroll", () => {
+    clearTimeout(scrollTimeout);
+
+    // Detect scroll stop
+    scrollTimeout = setTimeout(() => {
+      if (!reachedEnd) {
+        alert("Please scroll to the end");
+      }
+    }, 1200);
+
+    // Detect end of page
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const pageHeight = document.body.offsetHeight;
+
+    if (scrollPosition >= pageHeight - 10 && !reachedEnd) {
+      reachedEnd = true;
+      alert("You have reached the end. Click on Continue");
+    }
+  });
+</script>
+
+
+
 </body>
 
 </html>
+
 
 
 
