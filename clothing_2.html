@@ -92,6 +92,32 @@
     opacity: 1;
   }
 }
+.btn-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;        /* ✅ allows wrapping */
+  gap: 10px;              /* spacing instead of margins */
+}
+.btn.small {
+  padding: 8px 14px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.btn-with-badge {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
 
   </style>
 </head>
@@ -111,15 +137,15 @@
     
   <div class="btn-group top-center">
     <button onclick="showSection('clothing')" class="btn small" id="btn-clothing">🛍 Clothing</button>
-    <a href="rewards.html" class="btn-with-badge">
-    <button class="btn small">✨Rewards</button>
-    <span class="badge">NEW</span>
-    </a>
-    <a href="video.html" class="btn-with-badge">
-    <button class="btn small">🎥Video</button>
-    <span class="badge">NEW</span>
-    </a>
-   
+    <a href="rewards.html" class="btn small btn-with-badge">
+  ✨ Rewards
+  <span class="badge">NEW</span>
+  </a>
+ <a href="video.html" class="btn small btn-with-badge">
+  🎥 Video
+ <span class="badge">NEW</span>
+ </a>
+
   
     
   </div>
@@ -239,6 +265,7 @@
 <footer class="footer">© 2025 Better Buy · All rights reserved</footer>
 </body>
 </html>
+
 
 
 
