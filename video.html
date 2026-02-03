@@ -132,6 +132,46 @@
 .end-btn:hover {
   opacity: 0.9;
 }
+#popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#popupBox {
+  background: #111;
+  padding: 20px 22px;
+  border-radius: 10px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
+}
+
+#popupBox p {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+#popupBox button {
+  background: var(--accent);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+#popupBox button:hover {
+  opacity: 0.9;
+}
 
 
 
@@ -262,35 +302,29 @@
   </button>
 </div>
 <script>
-  let scrollTimeout;
-  let reachedEnd = false;
+  function closePopup() {
+    document.getElementById("popupOverlay").style.display = "none";
+  }
 
-  window.addEventListener("scroll", () => {
-    clearTimeout(scrollTimeout);
-
-    // Detect scroll stop
-    scrollTimeout = setTimeout(() => {
-      if (!reachedEnd) {
-        alert("Please scroll to the end");
-      }
-    }, 1200);
-
-    // Detect end of page
-    const scrollPosition = window.innerHeight + window.scrollY;
-    const pageHeight = document.body.offsetHeight;
-
-    if (scrollPosition >= pageHeight - 10 && !reachedEnd) {
-      reachedEnd = true;
-      alert("You have reached the end. Click on Continue");
-    }
-  });
+  // Show popup once on page load
+  window.onload = function () {
+    document.getElementById("popupOverlay").style.display = "flex";
+  };
 </script>
 
+<!-- PAGE LOAD POPUP -->
+<div id="popupOverlay">
+  <div id="popupBox">
+    <p>Please scroll through all the videos and click on the <b>Continue</b> button at the end of the page.</p>
+    <button onclick="closePopup()">Okay</button>
+  </div>
+</div>
 
 
 </body>
 
 </html>
+
 
 
 
