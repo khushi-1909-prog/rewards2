@@ -141,7 +141,7 @@
   ✨ Rewards
   <span class="badge">NEW</span>
   </a>
- <a href="video.html" class="btn small btn-with-badge">
+  <a href="video.html" class="btn small btn-with-badge" id="video-btn">
   🎥 Video
  <span class="badge">NEW</span>
  </a>
@@ -243,21 +243,41 @@
   }
 
   // Optionally hide clothing section initially
+ <script>
+  function showSection(type) {
+    const clothing = document.getElementById("clothing");
+    if (type === "clothing") {
+      clothing.style.display = "block";
+    }
+  }
+
   window.onload = function () {
-    document.getElementById("clothing").style.display = "none";
-  };
-   window.onload = function () {
+
     const popup = document.getElementById("order-popup");
     const closeBtn = document.getElementById("close-popup");
+    const videoBtn = document.getElementById("video-btn");
 
-    // Show popup on page load
+    const params = new URLSearchParams(window.location.search);
+
+    // 🔹 Disable video button if coming from intro2
+    if (params.get("fromIntro2") === "true") {
+      videoBtn.style.pointerEvents = "none";   // disables clicking
+      videoBtn.style.opacity = "0.5";
+      videoBtn.style.cursor = "not-allowed";
+    }
+
+    // 🔹 Hide clothing section initially
+    const clothing = document.getElementById("clothing");
+    if (clothing) clothing.style.display = "none";
+
+    // 🔹 Show popup
     popup.style.display = "flex";
 
-    // Close popup
     closeBtn.onclick = function () {
       popup.style.display = "none";
     };
   };
+</script>
 </script>
 
 
@@ -265,6 +285,7 @@
 <footer class="footer">© 2025 Zyntho · All rights reserved</footer>
 </body>
 </html>
+
 
 
 
